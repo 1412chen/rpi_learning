@@ -63,14 +63,13 @@ def display4Digits(number):
        'E': [0, 1, 1, 1, 1, 0, 0, 1],
        'F': [0, 1, 1, 1, 0, 0, 0, 1]}
   digits = {1: D1, 2: D2, 3: D3, 4: D4}
-  for t in range(200):
+  for t in range(100):
     for i in range(4):
       d = number[i]
       display(num[d])
       GPIO.output(digits[i+1], GPIO.LOW)
       time.sleep(0.01)
       GPIO.output(digits[i+1], GPIO.HIGH)
-    time.sleep(0.01)
 
 init()
 display4Digits("89EF")
