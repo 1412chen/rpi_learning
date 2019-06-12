@@ -30,76 +30,28 @@ def init():
 
 def display(frag):
   for v in frag:
-    if v:
-      GPIO.output(SER, GPIO.HIGH)
-    else:
-      GPIO.output(SER, GPIO.LOW)
+    GPIO.output(SER, v)
     GPIO.output(SRCLK, GPIO.HIGH)
     GPIO.output(SRCLK, GPIO.LOW)
   GPIO.output(RCLK, GPIO.HIGH)
   GPIO.output(RCLK, GPIO.LOW)
 
-def display0():
-  display([1, 1, 0, 0, 0, 0, 0, 0])
-
-def display1():
-  display([1, 1, 1, 1, 1, 0, 0, 1])
-
-def display2():
-  display([1, 0, 1, 0, 0, 1, 0, 0])
-
-def display3():
-  display([1, 0, 1, 1, 0, 0, 0, 0])
-
-def display4():
-  display([1, 0, 0, 1, 1, 0, 0, 1])
-
-def display5():
-  display([1, 0, 0, 1, 0, 0, 1, 0])
-
-def display6():
-  display([1, 0, 0, 0, 0, 0, 1, 0])
-
-def display7():
-  display([1, 1, 1, 1, 1, 0, 0, 0])
-
-def display8():
-  display([1, 0, 0, 0, 0, 0, 0, 0])
-
-def display9():
-  display([1, 0, 0, 1, 0, 0, 0, 0])
-
-def displayE():
-  display([1, 0, 0, 0, 0, 1, 1, 0])
-
-def displayF():
-  display([1, 0, 0, 0, 1, 1, 1, 0])
-
-def displayNone():
-  display([1, 1, 1, 1, 1, 1, 1, 1])
-
+num = {' ': [1, 1, 1, 1, 1, 1, 1, 1],
+       '0': [1, 1, 0, 0, 0, 0, 0, 0],
+       '1': [1, 1, 0, 0, 0, 0, 0, 0],
+       '2': [1, 0, 1, 0, 0, 1, 0, 0],
+       '3': [1, 0, 1, 1, 0, 0, 0, 0],
+       '4': [1, 0, 0, 1, 1, 0, 0, 1],
+       '5': [1, 0, 0, 1, 0, 0, 1, 0],
+       '6': [1, 0, 0, 0, 0, 0, 1, 0],
+       '7': [1, 1, 1, 1, 1, 0, 0, 0],
+       '8': [1, 0, 0, 0, 0, 0, 0, 0],
+       '9': [1, 0, 0, 1, 0, 0, 0, 0],
+       'E': [1, 0, 0, 0, 0, 1, 1, 0],
+       'F': [1, 0, 0, 0, 1, 1, 1, 0]}
 
 init()
-display0()
-time.sleep(1)
-display1()
-time.sleep(1)
-display2()
-time.sleep(1)
-display3()
-time.sleep(1)
-display4()
-time.sleep(1)
-display5()
-time.sleep(1)
-display6()
-time.sleep(1)
-display7()
-time.sleep(1)
-display8()
-time.sleep(1)
-display9()
-time.sleep(1)
-displayE()
-time.sleep(1)
-displayF()
+for i in "0123456789EF":
+  display(num[i])
+  time.sleep(1)
+
